@@ -19,9 +19,9 @@ class TableViewController : UIViewController, UITableViewDelegate, UITableViewDa
         
         for i in 1...12 {
             if i > 9 {
-                items.append(DataItem(title: "Title #\(i)", subtitle: "This is subtitle #\(i)", imageName: "images/img\(i).jpg"))
+                items.append(DataItem(title: "Title #\(i)", subtitle: "This is subtitle #\(i)", imageName: "img\(i).jpg"))
             } else {
-                items.append(DataItem(title: "Title #0\(i)", subtitle: "This is subtitle #0\(i)", imageName: "images/img0\(i).jpg"))
+                items.append(DataItem(title: "Title #0\(i)", subtitle: "This is subtitle #0\(i)", imageName: "img0\(i).jpg"))
             }
         }
     }
@@ -33,7 +33,7 @@ class TableViewController : UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return 12
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
