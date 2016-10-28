@@ -9,9 +9,13 @@
 import UIKit
 class TableViewController : UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var tableView: UITableView!
+    
     var items = [DataItem]()
     
-    @IBOutlet weak var tableView: UITableView!
+    var otherItems = [DataItem]()
+    var allItems = [[DataItem]]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +28,17 @@ class TableViewController : UIViewController, UITableViewDelegate, UITableViewDa
                 items.append(DataItem(title: "Title #0\(i)", subtitle: "This is subtitle #0\(i)", imageName: "img0\(i).jpg"))
             }
         }
+        for i in 1...12 {
+            if i > 9 {
+                otherItems.append(DataItem(title: "Another Title #\(i)", subtitle: "This is another subtitle #\(i)", imageName: "anim\(i).jpg"))
+            } else {
+                otherItems.append(DataItem(title: "Another Title #0\(i)", subtitle: "This is another subtitle #0\(i)", imageName: "anim0\(i).jpg"))
+            }
+        }
+        
+        allItems.append(items)
+        allItems.append(otherItems)
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -33,16 +48,17 @@ class TableViewController : UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 12
+        return allItems[section].count
+        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return allItems.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        let item = items[indexPath.row]
+        let item = allItems[indexPath.section][indexPath.row]
         
         cell.textLabel?.text = item.title
         cell.detailTextLabel?.text = item.subtitle
@@ -56,10 +72,19 @@ class TableViewController : UIViewController, UITableViewDelegate, UITableViewDa
         return cell
     }
     
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Section #\(section)"
+        
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        if editingStyle == .delete {
+        allItems[indexPath.section].remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+
 }
-
-
-
 
 
 
