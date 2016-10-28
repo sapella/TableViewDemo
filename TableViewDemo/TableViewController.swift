@@ -9,10 +9,11 @@
 import UIKit
 class TableViewController : UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var tableView: UITableView!
+    
+   
+    @IBOutlet weak var TableView: UITableView!
     
     var items = [DataItem]()
-    
     var otherItems = [DataItem]()
     var allItems = [[DataItem]]()
     
@@ -48,7 +49,7 @@ class TableViewController : UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return allItems[section].count
+        return allItems [section].count
         
     }
     
@@ -76,11 +77,11 @@ class TableViewController : UIViewController, UITableViewDelegate, UITableViewDa
         return "Section #\(section)"
         
     }
-    
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
-        if editingStyle == .delete {
-        allItems[indexPath.section].remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+            if editingStyle == .delete {
+                allItems[indexPath.section].remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with : UITableViewRowAnimation.fade)
         }
     }
 

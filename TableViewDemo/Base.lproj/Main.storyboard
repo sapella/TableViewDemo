@@ -61,13 +61,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Nature Pictures" id="6XE-pL-nBO"/>
-                    <connections>
-                        <outlet property="tableView" destination="XZ1-8H-f6Z" id="gWI-GJ-MKP"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="960.79999999999995" y="120.98950524737631"/>
+            <point key="canvasLocation" x="960.5" y="120.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Wxm-KZ-gTT">
