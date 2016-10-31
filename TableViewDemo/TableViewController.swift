@@ -22,6 +22,8 @@ class TableViewController : UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        navigationItem.rightBarButtonItem = editButtonItem
+        
         for i in 1...12 {
             if i > 9 {
                 items.append(DataItem(title: "Title #\(i)", subtitle: "This is subtitle #\(i)", imageName: "img\(i).jpg"))
@@ -85,6 +87,16 @@ class TableViewController : UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
 
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        
+        if editing {
+            tableView.setEditing(true, animated: true)
+        }   else {
+            tableView.setEditing(false, animated: true)
+        }
+    }
+    
 }
 
 
