@@ -89,11 +89,11 @@ class TableViewController : UIViewController, UITableViewDelegate, UITableViewDa
 
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
-        
+
         if editing {
             tableView.setEditing(true, animated: true)
         }   else {
-            tableView.setEditing(false, animated: true)
+           tableView.setEditing(false, animated: true)
         }
     }
     
