@@ -11,7 +11,7 @@ class TableViewController : UIViewController, UITableViewDelegate, UITableViewDa
     
     
    
-    @IBOutlet weak var TableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     
     var items = [DataItem]()
     var otherItems = [DataItem]()
