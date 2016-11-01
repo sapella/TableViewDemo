@@ -61,6 +61,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Nature Pictures" id="6XE-pL-nBO"/>
+                    <connections>
+                        <outlet property="tableView" destination="XZ1-8H-f6Z" id="eVj-Uu-O9M"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
