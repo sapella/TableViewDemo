@@ -183,9 +183,7 @@ class TableViewController : UIViewController, UITableViewDelegate, UITableViewDa
             return IndexPath(row: sectionItems.count - 1, section: proposedDestinationIndexPath.section)
         }
         return proposedDestinationIndexPath
-    }
-    
-    
+    }    
 }
 
 
